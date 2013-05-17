@@ -956,6 +956,7 @@ width:100%;
 }
 #header ul.user>li>.phone span:first-child{
 	font-family:"微软雅黑";
+	font-size:17px;
 }
 #header ul.user>li>a {
 	font-family: "微软雅黑";
