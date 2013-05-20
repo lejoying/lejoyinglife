@@ -757,7 +757,6 @@ strong {
 p {
 	font-size:16px;
 	line-height:22px;
-	margin-top:12px;
 	margin-bottom:12px;
 	font-weight:normal;
 	color:#312f2d;
@@ -862,6 +861,143 @@ filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 .hero-unit>.inner {
 	padding:30px;
+	text-align:left;
+}
+.hero-unit > .inner > p > label{
+	display:inline;
+	margin-right:10px;
+	background:#ccc;
+	padding:5px 10px;	
+	color:#000;
+	cursor:auto;
+}
+.hero-unit > .inner > div > p > a, .hero-unit > .inner > div > a, .hero-unit > .inner > div > p > a:hover, .hero-unit > .inner > div > p > a:focus{
+	text-decoration:none;	
+	border-radius: 3px 3px 3px 3px;
+    letter-spacing: 1px;
+    text-shadow: none;
+    text-transform: uppercase;
+	font-size:22px;
+    height: 50px;
+    line-height: 50px;
+	text-align:center;
+	display:inline-block;
+    padding:0 35px;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	margin-left:15px;
+}
+.hero-unit > .inner > div > a.pay_online{
+	height:40px;
+	line-height:40px;
+	font-size:20px;
+	padding:0 20px;	
+}
+.hero-unit > .inner > p input[type="text"]{
+	width:auto;
+	margin-right:10px;	
+}
+.price{
+	color:#ff9000;
+	font-size:24px;	
+}
+.hero-unit>.inner > h1 > img{
+	margin:0 5px 0 8px;
+}
+.hero-unit > .inner > p{
+	padding:2px 0;	
+}
+.hero-unit > .inner > div > p > a{
+	background-color: #336486;
+    background-image: linear-gradient(to bottom, #3F7DA6, #203F55);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;	
+}
+.hero-unit > .inner > div > p > a:hover{
+	color:#ffffff;
+	background-color:#203f55;
+	*background-color:#193142;
+	background-position:0 -15px;
+	-webkit-transition:background-position 0.1s linear;
+	-moz-transition:background-position 0.1s linear;
+	-o-transition:background-position 0.1s linear;
+	transition:background-position 0.1s linear;
+} 
+.hero-unit > .inner > div > p > a:focus{
+	background-color: #336486;
+    background-image: linear-gradient(to bottom, #203F55, #3F7DA6);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+}
+.opreat_btn{
+	float:right;
+	clear:both;	
+}
+ .hero-unit > .inner > div > a.refresh,  .hero-unit > .inner > div > a.goback{
+	cursor:pointer;
+	display:inline-block;
+	width:20px;
+	height:17px;
+	background-image:url(/static/images/icon.png);	
+	padding:0;
+	margin:0 2px;	
+}
+.hero-unit > .inner > div > a.refresh{
+	background-position:0 0;
+}
+.hero-unit > .inner > div > a.goback{
+	background-position:0 -19px;
+}
+.hero-unit > .inner > div > a.refresh:hover{
+	background-position:0 -36px;
+}
+.hero-unit > .inner > div > a.goback:hover{
+	background-position:0 -55px;
+}
+.change_op{
+	position:absolute;
+	right:10px;
+	top:10px;
+}
+.pay_online{
+	background-color: #336486;
+    background-image: linear-gradient(to bottom, #3F7DA6, #203F55);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;	
+	border-radius: 3px 3px 3px 3px;
+	height:30px;
+	margin-left:10px;
+}
+.pay_online:hover{   
+    color: #FFFFFF;	
+	border-radius: 3px 3px 3px 3px;
+	height:30px;
+	margin-left:10px;
+	background-color:#203f55;
+	*background-color:#193142;
+	background-position:0 -15px;
+	-webkit-transition:background-position 0.1s linear;
+	-moz-transition:background-position 0.1s linear;
+	-o-transition:background-position 0.1s linear;
+	transition:background-position 0.1s linear;	
+}
+.bottom_line{
+	border-top:1px solid #d0d0d0;
+	height:20px;
+	overflow:hidden;	
+	text-align:right;
+	margin-bottom:0;
+}
+.bottom_line a{
+	color:#666666;
+	text-decoration:underline;	
+}
+.bottom_line a:hover{
+	color:#3b5998;
+	text-decoration:underline;	
 }
 #cleaning_masthead_blue {
 	-webkit-box-shadow:0 1px 5px 0 #bcbcbc;
