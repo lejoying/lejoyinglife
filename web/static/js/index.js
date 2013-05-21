@@ -33,12 +33,13 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
+    app.localSettings.service_type = "一般服务";
 
     var reg_phone = /^[1][358]\d{9}$/;
     $("#next").click(function () {
 
         var phone = $("#phone").val();
-        if(!reg_phone.test(phone)){
+        if (!reg_phone.test(phone)) {
             $(".hint_phone").removeClass("hide");
             return;
         }
@@ -48,33 +49,81 @@ $(document).ready(function () {
             type: 'GET',
             url: ("/api2/account/verification/get"),
             success: function (data) {
-                if (data["提示信息"] == "验证码已发送到指定手机") {
-                    $(".hero-unit.current[type='input_phone']").animate({left: "1500px"}, 400, function () {
-                        var input_verification_div = $(".hero-unit[type='input_verification']")
-                        input_verification_div.css({left: "-1500px"});
-                        $(".hero-unit").removeClass("current");
-                        input_verification_div.addClass("current");
-                        input_verification_div.animate({left: "100px"}, 200);
-                    });
+                if (data["提示信息"] == "验证码已发送到指定手机" || data["提示信息"] == "验证码已于10秒之内发送到指定手机") {
+                    app.localSettings.phone = phone;
+                    div_animation();
                 }
             }
         });
+        function div_animation() {
+            $(".hero-unit.current[type='input_phone']").animate({left: "1500px"}, 400, function () {
+                var input_verification_div = $(".hero-unit[type='input_verification']")
+                input_verification_div.css({left: "-1500px"});
+                $(".hero-unit").removeClass("current");
+                input_verification_div.addClass("current");
+                input_verification_div.animate({left: "100px"}, 200);
+            });
+        }
     });
 
+
+    var reg_verification = /^\d{6}$/;
     $("#complete").click(function () {
-        $(".hero-unit.current[type='input_verification']").animate({left: "1500px"}, 400, function () {
-            var generating_order_div = $(".hero-unit[type='generating_order']")
-            generating_order_div.css({left: "-1500px"});
-            $(".hero-unit").removeClass("current");
-            generating_order_div.addClass("current");
-            generating_order_div.animate({left: "100px"}, 200);
+
+            var verification = $("#verification").val();
+            if (!reg_verification.test(verification)) {
+                $(".hint_verification").removeClass("hide");
+                return;
+            }
+
+            $.ajax({
+                data: {"phone": app.localSettings.phone, "verification": verification},
+                type: 'GET',
+                url: ("/api2/account/verification/auth"),
+                success: function (data) {
+                    if (data["提示信息"] == "验证码验证通过") {
+                        sendOrder();
+                        div_animation();
+                    }
+                    else {
+                        $(".hint_verification").removeClass("hide");
+                    }
+                }
+            });
+
+            function sendOrder() {
+
+                $.ajax({
+                    data: {uid: "nnnn", accesskey: "XXXXXX", phone: app.localSettings.phone, service_type: app.localSettings.service_type},
+                    type: 'GET',
+                    url: ("/api2/order/create"),
+                    success: function (data) {
+                        if (data["提示信息"] == "订单创建成功") {
+                            console.log("订单创建成功");
+                        }
+                        else {
+                        }
+                    }
+                });
+            }
+
+            function div_animation() {
+                $(".hero-unit.current[type='input_verification']").animate({left: "1500px"}, 400, function () {
+                    var generating_order_div = $(".hero-unit[type='generating_order']")
+                    generating_order_div.css({left: "-1500px"});
+                    $(".hero-unit").removeClass("current");
+                    generating_order_div.addClass("current");
+                    generating_order_div.animate({left: "100px"}, 200);
 
 
-            $(".head_nav[type='has_order']").removeClass("current");
-            $(".head_nav[type='input_phone']").addClass("current");
-            $(".head_nav[type='show_orders']").addClass("current");
-        });
-    });
+                    $(".head_nav[type='has_order']").removeClass("current");
+                    $(".head_nav[type='input_phone']").addClass("current");
+                    $(".head_nav[type='show_orders']").addClass("current");
+                });
+            }
+        }
+
+    );
 
     $(".goback").click(function () {
         $(".hero-unit.current[type='input_verification']").animate({left: "-1500px"}, 400, function () {
@@ -95,6 +144,7 @@ $(document).ready(function () {
         $(this).addClass("active");
         //        alert("next");
         var text = $("a", this).text();
+        app.localSettings.service_type = text;
         //        alert(text);
         $(".hero-unit.current").animate({left: "1500px"}, 400, function () {
             $(".hero-unit").removeClass("current");

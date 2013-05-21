@@ -14,7 +14,7 @@
 <!--**********************************-->
 <div id="header">
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container above"> <a href="javascript:;" class="logo pull-left"> <img src="/static/images/logo.png"> </a>
+        <div class="container above"> <a href="/" class="logo pull-left"> <img src="/static/images/logo.png"> </a>
             <ul class="nav user pull-right">
                 <li class="no-hover">
                     <div class="phone"> <span>服务电话</span>&nbsp;<span>010-86268866</span> </div>
@@ -73,10 +73,10 @@
                         </div>
                         <h1 style="font-size: 30px">请输入您手机收到的验证码完成订单</h1>
                         <div class="call-to-action" style="text-align:left">
-                            <input class="big-input" placeholder="验证码" type="text">
+                            <input class="big-input" id="verification" placeholder="验证码" type="text">
                             <button class="btn btn-primary"  id="complete"  style="margin-left: 10px;">完成</button>
                         </div>
-                        <div class="hint hide"style="left: 32px;position: absolute;color: #dd1144;font-family: '微软雅黑';">
+                        <div class="hint_verification hint hide"style="left: 32px;position: absolute;color: #dd1144;font-family: '微软雅黑';">
                             验证码不正确！
                         </div>
                     </div>

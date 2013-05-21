@@ -19,5 +19,13 @@ requestHandlers.verification = function (request, response, pathObject, data) {
     }
 };
 
+var orderManage = require('./handlers/orderManage');
+requestHandlers.orderManage = function (request, response, pathObject, data) {
+    var operation = pathObject["operation"];
+    if (operation == "create") {
+        orderManage.create(data, response);
+    }
+};
+
 
 module.exports = requestHandlers;

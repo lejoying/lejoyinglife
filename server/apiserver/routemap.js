@@ -10,7 +10,7 @@ var requestHandlers = require("./requestHandlers");
 var routemap = {
     "get":{
         "/api2/account/verification/:operation":requestHandlers.verification,
-        "/api2/order/:operation":requestHandlers.order
+        "/api2/order/:operation":requestHandlers.orderManage
     },
     "post":{
     },
