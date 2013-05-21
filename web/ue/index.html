@@ -19,7 +19,9 @@
                 <li class="no-hover">
                     <div class="phone"> <span>服务电话</span>&nbsp;<span>010-86268866</span> </div>
                 </li>
-                <li><a href="javascript:;">已有预定</a></li>
+                <li class="head_nav hide current" type="has_order"><a href="javascript:;">已有预定</a></li>
+                <li class="head_nav hide " type="input_phone"><a href="javascript:;">继续预定</a></li>
+                <li class="head_nav hide" type="show_orders"><a href="javascript:;">历史订单</a></li>
             </ul>
         </div>
         <div class="navbar-inner">
@@ -53,6 +55,9 @@
                             <input class="big-input" placeholder="手机号" type="text">
                             <button class="btn btn-primary" id="next" style="margin-left: 10px;">下一步</button>
                         </div>
+                        <div class="hint hide"style="left: 32px;position: absolute;color: #dd1144;font-family: '微软雅黑';">
+                            请输入正确的手机号！
+                        </div>
                     </div>
                 </div>
                 <!--**********************************-->
@@ -61,11 +66,18 @@
                 <!--**********************************-->
                 <div class="hero-unit hide"   type="input_verification" style="left: 100px;">
                     <div class="inner">
-                        <div class="change_op"><a href="javascript:;" title="刷新" class="refresh"></a><a href="javascript:;"  title="返回" class="goback"></a></div>
+                        <div class="change_op">
+                            <span class="refresh_hint hide" style="font-size: 5px">60秒后，再次发送</span>
+                            <a href="javascript:;" title="再次发送" class="refresh"></a>
+                            <a href="javascript:;"  title="返回" class="goback"></a>
+                        </div>
                         <h1 style="font-size: 30px">请输入您手机收到的验证码完成订单</h1>
                         <div class="call-to-action" style="text-align:left">
                             <input class="big-input" placeholder="验证码" type="text">
-                            <button class="btn btn-primary" style="margin-left: 10px;">完成</button>
+                            <button class="btn btn-primary"  id="complete"  style="margin-left: 10px;">完成</button>
+                        </div>
+                        <div class="hint hide"style="left: 32px;position: absolute;color: #dd1144;font-family: '微软雅黑';">
+                            验证码不正确！
                         </div>
                     </div>
                 </div>
@@ -82,7 +94,7 @@
             <!--交互框-->
             <!--查询订单-->
             <!--**********************************-->
-            <div class="hero-unit hide"  type="show_orders" style="left: 100px;">
+            <div class="hero-unit hide"  type="has_order" style="left: 100px;">
                 <div class="inner">
                     <h1 style="font-size: 30px">请输入您的手机号查看订单</h1>
                     <div class="call-to-action" style="text-align:left">
