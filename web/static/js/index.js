@@ -34,13 +34,30 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 
+    var reg_phone = /^[1][358]\d{9}$/;
     $("#next").click(function () {
-        $(".hero-unit.current[type='input_phone']").animate({left: "1500px"}, 400, function () {
-            var input_verification_div = $(".hero-unit[type='input_verification']")
-            input_verification_div.css({left: "-1500px"});
-            $(".hero-unit").removeClass("current");
-            input_verification_div.addClass("current");
-            input_verification_div.animate({left: "100px"}, 200);
+
+        var phone = $("#phone").val();
+        if(!reg_phone.test(phone)){
+            $(".hint_phone").removeClass("hide");
+            return;
+        }
+
+        $.ajax({
+            data: {"phone": phone},
+            type: 'GET',
+            url: ("/api2/account/verification/get"),
+            success: function (data) {
+                if (data["提示信息"] == "验证码已发送到指定手机") {
+                    $(".hero-unit.current[type='input_phone']").animate({left: "1500px"}, 400, function () {
+                        var input_verification_div = $(".hero-unit[type='input_verification']")
+                        input_verification_div.css({left: "-1500px"});
+                        $(".hero-unit").removeClass("current");
+                        input_verification_div.addClass("current");
+                        input_verification_div.animate({left: "100px"}, 200);
+                    });
+                }
+            }
         });
     });
 

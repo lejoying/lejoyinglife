@@ -1,5 +1,5 @@
 /**
- * Date: 2013.04.15
+ * Date: 2013.05.21
  * The simplest framework for RESTful api server.
  * Run "$ sudo node servercluster.js" to start the servers below.
  *
@@ -7,8 +7,6 @@
  */
 
 
-var server0 = require('./weixinserver/main.js');//8062
+var server0 = require('./apiserver/main.js');//8062
 //var server1 = require('./server1/main.js');
 
-
-var server1 = require('./bindserver/main.js');//8064
