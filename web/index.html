@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/static/css/css-style.css" rel="stylesheet" type="text/css">
+<title>乐家品质生活服务</title>
+<link href="/static/images/favicon.png" rel="shortcut icon">
+</head>
+
+<body>
+<!--**********************************-->
+<!--乐家品质生活服务-->
+<!--header-->
+<!--**********************************-->
+<div id="header">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container above"> <a href="/" class="logo pull-left"> <img src="/static/images/logo.png"> </a>
+            <ul class="nav user pull-right">
+                <li class="no-hover">
+                    <div class="phone"> <span>服务电话</span>&nbsp;<span>010-86268866</span> </div>
+                </li>
+                <li class="head_nav hide current" type="has_order"><a href="javascript:;">已有预定</a></li>
+                <li class="head_nav hide " type="input_phone"><a href="javascript:;">继续预定</a></li>
+                <li class="head_nav hide" type="show_orders"><a href="javascript:;">历史订单</a></li>
+            </ul>
+        </div>
+        <div class="navbar-inner">
+            <div class="container">
+                <ul class="nav main">
+                    <li class="dropdown active"> <a href="javascript:;">家政服务</a></li>
+                    <li class="dropdown"> <a href="javascript:;">按摩服务</a> </li>
+                    <li class="dropdown"><a href="javascript:;">送水服务</a></li>
+                    <li class="dropdown"><a href="javascript:;">顺丰快递</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="whiteline"></div>
+</div>
+<!--**********************************-->
+<!--乐家品质生活服务-->
+<!--交互框-->
+<!--**********************************-->
+<div style=" background-image: url(/static/images/header_new-york.jpg); " id="cleaning_masthead_blue">
+    <div class="container addborder">
+        <div class="row">
+                <!--**********************************-->
+                <!--交互框-->
+                <!--填写手机号-->
+                <!--**********************************-->
+                <div class="hero-unit hide current" type="input_phone" style="left: 100px;">
+                    <div class="inner">
+                        <h1 style="font-size: 30px">在线预定高端品质生活服务</h1>
+                        <div class="call-to-action" style="text-align:left">
+                            <input class="big-input" id="phone" placeholder="手机号" type="text">
+                            <button class="btn btn-primary" id="next" style="margin-left: 10px;">下一步</button>
+                        </div>
+                        <div class="hint hide hint_phone"style="left: 32px;position: absolute;color: #dd1144;font-family: '微软雅黑';">
+                            请输入正确的手机号！
+                        </div>
+                    </div>
+                </div>
+                <!--**********************************-->
+                <!--交互框-->
+                <!--填写验证码-->
+                <!--**********************************-->
+                <div class="hero-unit hide"   type="input_verification" style="left: 100px;">
+                    <div class="inner">
+                        <div class="change_op">
+                            <span class="refresh_hint hide" style="font-size: 5px">60秒后，再次发送</span>
+                            <a href="javascript:;" title="再次发送" class="refresh"></a>
+                            <a href="javascript:;"  title="返回" class="goback"></a>
+                        </div>
+                        <h1 style="font-size: 30px">请输入您手机收到的验证码完成订单</h1>
+                        <div class="call-to-action" style="text-align:left">
+                            <input class="big-input" id="verification" placeholder="验证码" type="text">
+                            <button class="btn btn-primary"  id="complete"  style="margin-left: 10px;">完成</button>
+                        </div>
+                        <div class="hint_verification hint hide"style="left: 32px;position: absolute;color: #dd1144;font-family: '微软雅黑';">
+                            验证码不正确！
+                        </div>
+                    </div>
+                </div>
+            <!--**********************************-->
+            <!--交互框-->
+            <!--生成订单-->
+            <!--**********************************-->
+            <div class="hero-unit hide"  type="generating_order" style="left: 100px;">
+                <div class="inner">
+                    <h1 style="font-size:30px;margin:30px 0;"><img src="/static/images/send_mms.png" />订单已生成，请等待服务人员和您联系。</h1>
+                </div>
+            </div>
+            <!--**********************************-->
+            <!--交互框-->
+            <!--查询订单-->
+            <!--**********************************-->
+            <div class="hero-unit hide"  type="has_order" style="left: 100px;">
+                <div class="inner">
+                    <h1 style="font-size: 30px">请输入您的手机号查看订单</h1>
+                    <div class="call-to-action" style="text-align:left">
+                        <input class="big-input" id="zip_code" name="zip_code" placeholder="手机号" type="text">
+                        <button class="btn btn-primary" style="margin-left: 10px;">查询</button>
+                    </div>
+                </div>
+            </div>
+            <!--**********************************-->
+            <!--交互框-->
+            <!--确认订单-->
+            <!--**********************************-->
+            <div class="hero-unit hide" type="check_order" style="left: 100px;">
+                <div class="inner">
+                    <h1 style="font-size: 30px">15244412122 您好！你的订单信息如下：</h1>
+                    <P class="bottom_line"><a href="javascript:;">修改订单</a></P>
+                    <p><b>地点：</b><label>北京市</label><label>朝阳区</label><label>大屯路慧忠北里311号楼</label></p>
+                    <p><b>时间：</b><label>10：00</label><b style="margin-right:10px;">~</b><label>11：00</label></p>
+                    <p><b>服务项目：</b><label>保洁</label></p>
+                    <div>
+                        <b>价格：</b><b class="price">130.00</b><a class="pay_online" href="javascript:;">在线支付</a>
+                        <p class="opreat_btn"><a href="javascript:;">确定</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--**********************************-->
+            <!--交互框-->
+            <!--**********************************-->
+        </div>
+    </div>
+</div>
+<!--**********************************-->
+<!--乐家品质生活服务-->
+<!--信息展示-->
+<!--**********************************-->
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span6"> <img src="/static/images/landing_cleaning_soap.jpg"> </div>
+        <div class="span6">
+            <h3 class="tight default_title" style="	margin: 80px 0 10px">人性化的服务理念</h3>
+            <p class="tight paragraph">我们提供绿色健康的品质生活服务，提高您和您家人的生活质量。我们关注您的健康，关注您的安全，关注您的舒适，用心为您营造宁静舒适的私密生活空间。而您需要做的只是使用您的智能手机，进行简单的操作。</p>
+        </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="row-fluid">
+        <div class="span6">
+            <h3 style="margin:30px 0 10px;" class="tight default_title">专业化的服务团队</h3>
+            <p class="tight paragraph">我们的服务将由专业化的服务团队为您打造。国际接轨的质量标准和培训机制，新型简洁的服务流程和质量标准，都体现了我们对服务品质的不懈追求。</p>
+        </div>
+        <div class="span6"> <img src="/static/images/landing_cleaning_2execs.jpg"> </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="row-fluid">
+        <div class="span6"> <img src="/static/images/landing_cleaning_cherryblossoms.jpg"> </div>
+        <div class="span6">
+            <h3 style="margin: 80px 0 10px;" class="tight default_title">200%  的品质保证</h3>
+            <p class="tight paragraph"> 如何做到200%的品质保证? 我们在不断探求着这个问题的答案。如果在服务中出现一丝丝瑕疵，我们的服务人员会免费上门为您再次服务，值到您满意为止。我们的信息工具会全程把控整个服务流程，让您对每一个细节都安心、放心。使用在线支付工具，如果出现您不满意的服务，我们7天内全额退款。 </p>
+        </div>
+    </div>
+    <div class="spacer"></div>
+</div>
+<!--**********************************-->
+<!--乐家品质生活服务-->
+<!--页脚-->
+<!--**********************************-->
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <span>Phone : 010-82136666</span>
+            <span>Email : support@lejoying.com</span>
+            <span>Weibo : @乐家品质生活</span>
+        </div>
+        <div class="copyright">
+            <div style="text-align: center;" class="span12"> &copy; 2013 Lejoying corp. </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/index.js"></script>
+</body>
+</html>
