@@ -56,7 +56,7 @@ verification.get = function (data, response) {
         }
         else {
             var interval = account.last_verification_time - node.data.last_verification_time;
-            if (interval > 1000 * 60 * 60) {
+            if (interval > 1000 * 60 * 10) {
                 node.data.verification = account.verification;
                 node.data.last_verification_time = account.last_verification_time;
                 node.save(function (err, node) {
@@ -69,9 +69,9 @@ verification.get = function (data, response) {
             }
             else if (interval > 1000 * 10 * 1) {
                 node.data.last_verification_time = account.last_verification_time;
-                var message = "乐家品质生活服务手机验证码：" + node.data.verification + "，欢迎您使用【乐家生活】";
+                var message1 = "乐家品质生活服务手机验证码：" + node.data.verification + "，欢迎您使用【乐家生活】";
                 node.save(function (err, node) {
-                    sendPhoneMessage(account.phone, message);
+                    sendPhoneMessage(account.phone, message1);
                     response.write(JSON.stringify({
                         "提示信息": "验证码已发送到指定手机"
                     }));
