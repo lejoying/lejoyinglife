@@ -1338,7 +1338,13 @@ input.big-input {
     padding: 20px 0;
     background: #dededc;
 }
-
+.friendlink{
+    text-align:center;
+    margin:20px;
+}
+.friendlink span a{
+    margin:0 10px;
+}
 h3.tight {
     letter-spacing: -1px;
 }
