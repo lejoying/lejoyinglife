@@ -11,6 +11,7 @@ var db = new neo4j.GraphDatabase('http://localhost:7474');
 var RSA = require('./../tools/RSA');
 var sha1 = require('./../tools/sha1');
 var ajax = require('../lib/ajax');
+var sms = require('../lib/sms');
 
 RSA.setMaxDigits(38);
 var pbkeyStr0 = RSA.RSAKeyStr("5db114f97e3b71e1316464bd4ba54b25a8f015ccb4bdf7796eb4767f9828841", "5db114f97e3b71e1316464bd4ba54b25a8f015ccb4bdf7796eb4767f9828841", "3e4ee7b8455ad00c3014e82057cbbe0bd7365f1fa858750830f01ca7e456b659");
@@ -60,7 +61,8 @@ verification.get = function (data, response) {
                 node.data.verification = account.verification;
                 node.data.last_verification_time = account.last_verification_time;
                 node.save(function (err, node) {
-                    sendPhoneMessage(account.phone, message);
+//                    sendPhoneMessage(account.phone, message);
+                    sms.sendMsg(account.phone, message);
                     response.write(JSON.stringify({
                         "提示信息": "验证码已发送到指定手机"
                     }));
@@ -71,7 +73,8 @@ verification.get = function (data, response) {
                 node.data.last_verification_time = account.last_verification_time;
                 var message1 = "乐家品质生活服务手机验证码：" + node.data.verification + "，欢迎您使用【乐家生活】";
                 node.save(function (err, node) {
-                    sendPhoneMessage(account.phone, message1);
+//                    sendPhoneMessage(account.phone, message1);
+                    sms.sendMsg(account.phone, message);
                     response.write(JSON.stringify({
                         "提示信息": "验证码已发送到指定手机"
                     }));
@@ -93,12 +96,13 @@ verification.get = function (data, response) {
             node.data.uid = node.id;
             node.index("account", "phone", account.phone);
             node.save(function (err, node) {
-                sendPhoneMessage(account.phone, message);
+//                sendPhoneMessage(account.phone, message);
+                sms.sendMsg(account.phone, message);
             });
         });
     }
 
-    function sendPhoneMessage(phone, message) {
+    /*function sendPhoneMessage(phone, message) {
         ajax.ajax({
             type: 'GET',
             url: "http://11529-c9239.sms-api.63810.com/api/SmsSend/user/wsds/hash/54c0b95f55a8851cc15f0ccaaea116ae/encode/utf-8/smstype/notify",
@@ -107,7 +111,7 @@ verification.get = function (data, response) {
                 //todo check if the message sent failed.
             }
         });
-    }
+    }*/
 
 };
 

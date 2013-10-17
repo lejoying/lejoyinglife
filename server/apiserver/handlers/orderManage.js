@@ -11,7 +11,7 @@ var db = new neo4j.GraphDatabase('http://localhost:7474');
 var RSA = require('./../tools/RSA');
 var sha1 = require('./../tools/sha1');
 var ajax = require('../lib/ajax');
-
+var sms = require('../lib/SMS');
 RSA.setMaxDigits(38);
 var pbkeyStr0 = RSA.RSAKeyStr("5db114f97e3b71e1316464bd4ba54b25a8f015ccb4bdf7796eb4767f9828841", "5db114f97e3b71e1316464bd4ba54b25a8f015ccb4bdf7796eb4767f9828841", "3e4ee7b8455ad00c3014e82057cbbe0bd7365f1fa858750830f01ca7e456b659");
 var pbkey0 = RSA.RSAKey(pbkeyStr0);
@@ -33,9 +33,9 @@ orderManage.create = function (data, response) {
     };
 
     var message = "【" + order.phone + "】预定了【" + order.service_type + "】服务，请回应。【乐家生活】";
-    sendPhoneMessage("15120088197", message);
-
-    function sendPhoneMessage(phone, message) {
+//    sendPhoneMessage("15120088197", message);
+    sms.sendMsg("15120088197", message);
+    /*function sendPhoneMessage(phone, message) {
         ajax.ajax({
             type: 'GET',
             url: "http://11529-c9239.sms-api.63810.com/api/SmsSend/user/wsds/hash/54c0b95f55a8851cc15f0ccaaea116ae/encode/utf-8/smstype/notify",
@@ -44,7 +44,7 @@ orderManage.create = function (data, response) {
                 //todo check if the message sent failed.
             }
         });
-    }
+    }*/
 
     response.write(JSON.stringify({
         "提示信息": "订单创建成功"
