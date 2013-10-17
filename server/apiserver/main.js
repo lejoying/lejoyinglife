@@ -27,6 +27,6 @@ http.createServer(
             response.end();
         }
 
-    }).listen(8062);
+    }).listen(8052);
 
 console.log("The RESTful api server is running.");
