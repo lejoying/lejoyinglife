@@ -32,7 +32,7 @@ orderManage.create = function (data, response) {
         "service_type": data.service_type
     };
 
-    var message = "【" + order.phone + "】预定了【" + order.service_type + "】服务，请回应。【乐家生活】";
+    var message = "【" + order.phone + "】预定了【" + order.service_type + "】服务，请回应.";
 //    sendPhoneMessage("15120088197", message);
     sms.sendMsg("15120088197", message);
     /*function sendPhoneMessage(phone, message) {

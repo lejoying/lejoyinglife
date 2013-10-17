@@ -48,7 +48,7 @@ verification.get = function (data, response) {
     account.verification = verification;
     account.last_verification_time = now.getTime();
 
-    var message = "乐家品质生活服务手机验证码：" + verification + "，欢迎您使用【乐家生活】";
+    var message = "乐家品质生活服务手机验证码：" + verification + "，欢迎您使用";
     //    console.log(account.phone, message);
 
     db.getIndexedNode("account", "phone", account.phone, function (err, node) {
@@ -71,7 +71,7 @@ verification.get = function (data, response) {
             }
             else if (interval > 1000 * 10 * 1) {
                 node.data.last_verification_time = account.last_verification_time;
-                var message1 = "乐家品质生活服务手机验证码：" + node.data.verification + "，欢迎您使用【乐家生活】";
+                var message1 = "乐家品质生活服务手机验证码：" + node.data.verification + "，欢迎您使用";
                 node.save(function (err, node) {
 //                    sendPhoneMessage(account.phone, message1);
                     sms.sendMsg(account.phone, message);
