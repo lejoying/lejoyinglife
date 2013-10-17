@@ -11,7 +11,7 @@ var db = new neo4j.GraphDatabase('http://localhost:7474');
 var RSA = require('./../tools/RSA');
 var sha1 = require('./../tools/sha1');
 var ajax = require('../lib/ajax');
-var sms = require('../lib/sms');
+var sms = require('../lib/SMS');
 
 RSA.setMaxDigits(38);
 var pbkeyStr0 = RSA.RSAKeyStr("5db114f97e3b71e1316464bd4ba54b25a8f015ccb4bdf7796eb4767f9828841", "5db114f97e3b71e1316464bd4ba54b25a8f015ccb4bdf7796eb4767f9828841", "3e4ee7b8455ad00c3014e82057cbbe0bd7365f1fa858750830f01ca7e456b659");
