@@ -6,8 +6,8 @@ var md5 = function () {
 
 var ACCOUNT_ID = '0000000041b645530141b9d1b56c0054'; //账户ID
 var ACCOUNT_TOKEN = 'a84c27dd1c3646e280ee7b9cdd4041f8'; //账户TOKEN
-var APP_ID = 'aaf98fda41b64df00141b9df8c16003d'; //APP的ID
-var SUB_ID = '8a48b72b41bf81f60141c4c72b7c0274'; //子账户ID
+var APP_ID = 'aaf98fda41c0770b0141c5b7faa50073'; //APP的ID
+var SUB_ID = '8a48b72b41bf81f60141c61975db03c1'; //子账户ID
 
 //计算签名和头
 var get_sign = function () {
@@ -47,8 +47,7 @@ var send_msg = function (to, msg) {
             'Accept': 'application/json'
         },
         rejectUnauthorized: false,
-        requestCert: true,
-        agent: false
+        requestCert: true
     }
 
     var raw = JSON.stringify({
@@ -88,8 +87,7 @@ var create_sub = function (name) {
             'Accept': 'application/json'
         },
         rejectUnauthorized: false,
-        requestCert: true,
-        agent: false
+        requestCert: true
     }
 
     var raw = JSON.stringify({
